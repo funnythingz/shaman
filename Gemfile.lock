@@ -44,6 +44,8 @@ GEM
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
+    materialize-sass (0.96.1)
+      sass (~> 3.3)
     middleman (3.3.10)
       coffee-script (~> 2.2)
       compass (>= 1.0.0, < 2.0.0)
@@ -125,6 +127,7 @@ PLATFORMS
 
 DEPENDENCIES
   builder (~> 3.0)
+  materialize-sass
   middleman (~> 3.3.10)
   middleman-blog (~> 3.5.3)
   middleman-slim

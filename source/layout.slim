@@ -7,27 +7,32 @@ html
       | Blog Title
       = ' - ' + current_article.title unless current_article.nil?
     = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
+
+    link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"
+                   
   body
     #main[role="main"]
       = yield
     aside
-      h2
-        | Recent Articles
-      ol
-        - blog.articles[0...10].each do |article|
-          li
-            = link_to article.title, article
-            span
-              = article.date.strftime('%b %e')
-      h2
-        | Tags
-      ol
-        - blog.tags.each do |tag, articles|
-          li
-            = link_to "#{tag} (#{articles.size})", tag_path(tag)
-      h2
-        | By Year
-      ol
-        - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
-          li
-            = link_to "#{year} (#{articles.size})", blog_year_path(year)
+      .container
+        h2
+          | Recent Articles
+        ol
+          - blog.articles[0...10].each do |article|
+            li
+              = link_to article.title, article
+              span
+                = article.date.strftime('%b %e')
+        h2
+          | Tags
+        ol
+          - blog.tags.each do |tag, articles|
+            li
+              = link_to "#{tag} (#{articles.size})", tag_path(tag)
+        h2
+          | By Year
+        ol
+          - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
+            li
+              = link_to "#{year} (#{articles.size})", blog_year_path(year)
