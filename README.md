@@ -7,6 +7,6 @@ This is helper package
 ### Sha1Hash
 
 ```go
-shaman.Sha1Hash("unko")
-// 
+shaman.Sha1hash("unko")
+// 73babc4eba0b7946c9926fdb56f96b87a9582b8f
 ```
